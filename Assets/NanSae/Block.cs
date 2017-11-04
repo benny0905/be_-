@@ -18,6 +18,8 @@ public class Block : MonoBehaviour{
 		}
 
 		pipeDirection = newDirections;
+
+		CheckNext();
 	}
 
 	void Start(){
@@ -27,11 +29,18 @@ public class Block : MonoBehaviour{
 		pipeDirection[0] = true;
 		pipeDirection[3] = true;*/
 		transform.position = worldPosition;
+		FindObjectOfType<TileManager>().Blocks.Add(this);
 	}
 
 	public Vector3 worldPosition{
 		get{
 			return new Vector3((positionX-positionY)*1.5f, (positionX+positionY)*2.4f, 0);
+		}
+	}
+
+	void CheckNext(){
+		if(pipeDirection[0] && FindObjectOfType<TileManager>().FindWithPosition(positionX+1, positionY-1, positionZ).pipeDirection[3]){
+			Debug.Log("Connected!");
 		}
 	}
 
