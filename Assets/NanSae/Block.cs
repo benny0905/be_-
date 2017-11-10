@@ -3,44 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour{
-	public int positionX;
-	public int positionY;
-	public int positionZ;
+	public float positionX;
+	public float positionY;
+    
 	public List<bool> pipeDirection = new List<bool>();
+
+    public TileManager Manager;
+
 	void OnMouseDown(){
-		transform.Rotate(0, 0, 60);
+        if (name == "StartTile")
+        {
+            CheckNext();
+        }
+        else
+        {
+            transform.Rotate(0, 0, 60);
 
-		//새로운 연결방향 계산
-		List<bool> newDirections = new List<bool>();
-		newDirections.Add(pipeDirection[5]);
-		for(int i = 0; i < 5; i++){
-			newDirections.Add(pipeDirection[i]);
-		}
+            //새로운 연결방향 계산
+            List<bool> newDirections = new List<bool>();
+            newDirections.Add(pipeDirection[5]);
+            for (int i = 0; i < 5; i++)
+            {
+                newDirections.Add(pipeDirection[i]);
+            }
 
-		pipeDirection = newDirections;
-
-		CheckNext();
+            pipeDirection = newDirections;
+        }
 	}
 
 	void Start(){
-		/*for(int i = 0; i < 6; i++){
-			pipeDirection.Add(false);
-		}
-		pipeDirection[0] = true;
-		pipeDirection[3] = true;*/
-		transform.position = worldPosition;
-		FindObjectOfType<TileManager>().Blocks.Add(this);
+        Manager = FindObjectOfType<TileManager>();
+        Manager.Blocks.Add(this);
+        transform.position = worldPosition;
 	}
 
 	public Vector3 worldPosition{
 		get{
-			return new Vector3((positionX-positionY)*1.5f, (positionX+positionY)*2.4f, 0);
+			return new Vector3(positionX*3, positionY*2.4f, 0);
 		}
 	}
 
 	void CheckNext(){
-		if(pipeDirection[0] && FindObjectOfType<TileManager>().FindWithPosition(positionX+1, positionY-1, positionZ).pipeDirection[3]){
-			Debug.Log("Connected!");
+        if (pipeDirection[0]) {
+            Block Neighbor = FindObjectOfType<TileManager>().FindWithPosition(positionX + 1, positionY);
+            if(Neighbor != null && Neighbor.pipeDirection[3])
+            {
+                Neighbor.GetComponent<SpriteRenderer>().color = Color.gray;
+            }        
 		}
 	}
 
