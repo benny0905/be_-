@@ -88,10 +88,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 636
-  m_MinSize: {x: 917, y: 271}
-  m_MaxSize: {x: 22012, y: 10021}
+  m_MinSize: {x: 911, y: 271}
+  m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 72
+  controlID: 25
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,8 +130,8 @@ MonoBehaviour:
     y: 0
     width: 220
     height: 636
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -180,8 +180,8 @@ MonoBehaviour:
     y: 0
     width: 306
     height: 636
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -241,9 +241,9 @@ MonoBehaviour:
     height: 615
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 12070000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 1ecbfeff86dbfeff28e2feffdc1afffff03dffff865cffff606fffff38b9ffffbacbffff50d1ffffa8d6ffff3ef8ffff00000000242b0000ba2b0000ea2c00002c2f0000
+    m_ExpandedIDs: a6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -336,8 +336,7 @@ MonoBehaviour:
     m_ScenePaths: []
     m_ShowAllHits: 0
     m_SearchArea: 0
-    m_Folders:
-    - Assets/ChaeHoon/Sources
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -348,7 +347,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 8e260000
     m_LastClickedID: 9870
-    m_ExpandedIDs: 00000000462900006029000088290000ee290000fa290000342a00006e2a0000842a0000a62a0000c02a0000542b0000562b0000
+    m_ExpandedIDs: 00000000022700001e2700004c270000b2270000be270000f8270000382800005028000074280000982800004029000042290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -373,10 +372,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 423}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000462900006029000088290000ee290000fa290000342a00006e2a0000842a0000a62a0000c02a0000542b0000562b0000
+    m_ExpandedIDs: 00000000022700001e2700004c270000b2270000be270000f8270000382800005028000074280000982800004029000042290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
