@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotate : MonoBehaviour
+public class RotateAnim : MonoBehaviour
 {
-    IEnumerator SmoothRotation()
+    public float state;
+
+    private void Awake()
+    {
+        int randnum = Random.Range(0, 6);
+        for(int n = 0; n < randnum; n++) StartCoroutine("SmoothRotation");
+    }
+
+    public IEnumerator SmoothRotation()
     {
         for (int num = 0; num < 24; num++)
         {
             yield return new WaitForSeconds(QuadraticFormula(num));
             transform.Rotate(0, 0, 2.5f);
         }
+        state += 60;
+        if (state >= 360) state -= 360;
     }
+
     private float QuadraticFormula(float x)
     {
         float y;
