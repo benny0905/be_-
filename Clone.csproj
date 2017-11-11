@@ -214,6 +214,7 @@
     <Compile Include="Assets\Jiyong\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\Turn.cs" />
     <Compile Include="Assets\NanSae\Block.cs" />
+    <Compile Include="Assets\NanSae\StringParser.cs" />
     <Compile Include="Assets\NanSae\TileManager.cs" />
     <Compile Include="Assets\Rotate.cs" />
   </ItemGroup>
