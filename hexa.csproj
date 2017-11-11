@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DB7798E3-E185-01A3-6EE5-1D7CFA6E2878}</ProjectGuid>
+    <ProjectGuid>{54D79A01-AC3D-8FA1-C07D-14521FB99828}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp.dll</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -219,9 +219,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ChaeHoon\turn.cs" />
     <Compile Include="Assets\Jiyong\Scripts\BackButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\Turn.cs" />
+    <Compile Include="Assets\NanSae\Block.cs" />
+    <Compile Include="Assets\NanSae\TileManager.cs" />
+    <Compile Include="Assets\rotate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -49,8 +49,18 @@ public class Block : MonoBehaviour{
             if(Neighbor != null && Neighbor.pipeDirection[3])
             {
                 Neighbor.GetComponent<SpriteRenderer>().color = Color.gray;
+                Neighbor.CheckNext();
             }        
 		}
+        if (pipeDirection[1])
+        {
+            Block Neighbor = FindObjectOfType<TileManager>().FindWithPosition(positionX + 0.5f, positionY + 1);
+            if(Neighbor != null && Neighbor.pipeDirection[4])
+            {
+                Neighbor.GetComponent<SpriteRenderer>().color = Color.gray;
+                Neighbor.CheckNext();
+            }
+        }
 	}
 
 	/*int nextDirection(int currentDirection){
