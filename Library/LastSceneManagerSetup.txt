@@ -1,12 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/ChaeHoon/CH.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Jiyong/Scenes/LevelOne.unity
-=======
-- path: Assets/NanSae/Title.unity
->>>>>>> 6ae482c6207968dbad4c13d836353bc97df5dda6
->>>>>>> refs/remotes/origin/master
+- path: Assets/Jiyong/Scenes/Chap 1/Chap 1.unity
   isLoaded: 1
   isActive: 1
