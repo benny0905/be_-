@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/EunHyuk/EH(1).unity
+- path: Assets/NanSae/Title.unity
   isLoaded: 1
   isActive: 1

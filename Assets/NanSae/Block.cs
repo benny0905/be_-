@@ -31,18 +31,6 @@ public class Block : MonoBehaviour{
         }
 	}
 
-	void Start(){
-        Manager = FindObjectOfType<TileManager>();
-        Manager.Blocks.Add(this);
-        transform.position = worldPosition;
-	}
-
-	public Vector3 worldPosition{
-		get{
-			return new Vector3(positionX*3, positionY*2.6f, 0);
-		}
-	}
-
 	void CheckNext(){
         for(int i = 0; i < 6; i++)
         {

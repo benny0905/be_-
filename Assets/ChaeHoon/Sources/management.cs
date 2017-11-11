@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class management : MonoBehaviour {
-
     RotateAnim objstart;
     RotateAnim objend;
     RotateAnim obj1;
@@ -33,12 +31,7 @@ public class management : MonoBehaviour {
     void Update () {
 		if(objstart.state == 2 * 60 && obj1.state == 5 * 60 && obj2.state == 2 * 60 && obj3.state == 5 * 60 && objend.state == 4 * 60)
         {
-            Invoke("SceneChange", 0.3f);
+            
         }
 	}
-
-    private void SceneChange()
-    {
-        SceneManager.LoadScene(15);
-    }
 }
