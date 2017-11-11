@@ -219,6 +219,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ChaeHoon\Sources\management.cs" />
     <Compile Include="Assets\ChaeHoon\Sources\rotate.cs" />
     <Compile Include="Assets\ChaeHoon\Sources\turn.cs" />
     <Compile Include="Assets\Jiyong\Scripts\BackButton.cs" />
