@@ -22,7 +22,7 @@ public class Block : MonoBehaviour{
             //새로운 연결방향 계산
             List<bool> newDirections = new List<bool>();
             newDirections.Add(pipeDirection[5]);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 newDirections.Add(pipeDirection[i]);
             }
@@ -39,12 +39,21 @@ public class Block : MonoBehaviour{
 
 	public Vector3 worldPosition{
 		get{
-			return new Vector3(positionX*3, positionY*2.4f, 0);
+			return new Vector3(positionX*3, positionY*2.6f, 0);
 		}
 	}
 
 	void CheckNext(){
-        if (pipeDirection[0]) {
+        for(int i = 0; i < 6; i++)
+        {
+            Block Neighbor = FindObjectOfType<TileManager>().NeighborBlock(this, i);
+            if (pipeDirection[i] && Neighbor != null && Neighbor.pipeDirection[ReverseDir(i)] && Neighbor.GetComponent<SpriteRenderer>().color != Color.gray)
+            {
+                Neighbor.GetComponent<SpriteRenderer>().color = Color.gray;
+                Neighbor.CheckNext();
+            }
+        }
+        /*if (pipeDirection[0]) {
             Block Neighbor = FindObjectOfType<TileManager>().FindWithPosition(positionX + 1, positionY);
             if(Neighbor != null && Neighbor.pipeDirection[3])
             {
@@ -60,7 +69,7 @@ public class Block : MonoBehaviour{
                 Neighbor.GetComponent<SpriteRenderer>().color = Color.gray;
                 Neighbor.CheckNext();
             }
-        }
+        }*/
 	}
 
 	/*int nextDirection(int currentDirection){
@@ -70,4 +79,17 @@ public class Block : MonoBehaviour{
 			return currentDirection+1;
 		}
 	}*/
+
+    int ReverseDir (int originDir)
+    {
+        originDir += 3;
+        if(originDir < 6)
+        {
+            return originDir;
+        }
+        else
+        {
+            return originDir - 6;
+        }
+    }
 }
