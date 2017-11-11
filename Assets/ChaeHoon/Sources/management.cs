@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class management : MonoBehaviour {
-
-    rotate objstart;
-    rotate objend;
-    rotate obj1;
-    rotate obj2;
-    rotate obj3;
-    rotate obj4;
+    RotateAnim objstart;
+    RotateAnim objend;
+    RotateAnim obj1;
+    RotateAnim obj2;
+    RotateAnim obj3;
+    RotateAnim obj4;
 
     void Start()
     {
@@ -20,12 +19,12 @@ public class management : MonoBehaviour {
         GameObject method3 = GameObject.Find("3");
         GameObject method4 = GameObject.Find("4");
 
-        if (methodstart != null) objstart = methodstart.GetComponent<rotate>();
-        if (methodstart != null) objend = methodend.GetComponent<rotate>();
-        if (methodstart != null) obj1 = method1.GetComponent<rotate>();
-        if (methodstart != null) obj2 = method2.GetComponent<rotate>();
-        if (methodstart != null) obj3 = method3.GetComponent<rotate>();
-        if (methodstart != null) obj4 = method4.GetComponent<rotate>();
+        if (methodstart != null) objstart = methodstart.GetComponent<RotateAnim>();
+        if (methodstart != null) objend = methodend.GetComponent<RotateAnim>();
+        if (methodstart != null) obj1 = method1.GetComponent<RotateAnim>();
+        if (methodstart != null) obj2 = method2.GetComponent<RotateAnim>();
+        if (methodstart != null) obj3 = method3.GetComponent<RotateAnim>();
+        if (methodstart != null) obj4 = method4.GetComponent<RotateAnim>();
     }
 
 
