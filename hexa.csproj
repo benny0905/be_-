@@ -219,9 +219,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ChaeHoon\turn.cs" />
     <Compile Include="Assets\Jiyong\Scripts\BackButton.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\ChapterOne.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\ChapterThree.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\ChapterTwo.cs" />
     <Compile Include="Assets\Jiyong\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\Turn.cs" />
+    <Compile Include="Assets\NanSae\Block.cs" />
+    <Compile Include="Assets\NanSae\TileManager.cs" />
+    <Compile Include="Assets\Rotate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
