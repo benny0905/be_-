@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Jiyong/PNG/Scenes/Chap 1/jae yong 2.unity
+- path: Assets/NanSae/Title.unity
   isLoaded: 1
   isActive: 1

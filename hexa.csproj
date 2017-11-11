@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DB7798E3-E185-01A3-6EE5-1D7CFA6E2878}</ProjectGuid>
+    <ProjectGuid>{54D79A01-AC3D-8FA1-C07D-14521FB99828}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp.dll</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -184,11 +184,17 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/user/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
@@ -198,7 +204,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChaeHoon\Sources\rotate.cs" />
+    <Compile Include="Assets\ChaeHoon\Sources\management.cs" />
+    <Compile Include="Assets\ChaeHoon\Sources\RotateAnim.cs" />
     <Compile Include="Assets\ChaeHoon\Sources\turn.cs" />
     <Compile Include="Assets\Jiyong\Scripts\BackButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\ChapterOne.cs" />
@@ -207,6 +214,7 @@
     <Compile Include="Assets\Jiyong\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\Jiyong\Scripts\Turn.cs" />
     <Compile Include="Assets\NanSae\Block.cs" />
+    <Compile Include="Assets\NanSae\StringParser.cs" />
     <Compile Include="Assets\NanSae\TileManager.cs" />
     <Compile Include="Assets\Rotate.cs" />
   </ItemGroup>

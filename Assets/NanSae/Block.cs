@@ -17,7 +17,7 @@ public class Block : MonoBehaviour{
         }
         else
         {
-            transform.Rotate(0, 0, 60);
+            //transform.Rotate(0, 0, 60);
 
             //새로운 연결방향 계산
             List<bool> newDirections = new List<bool>();
@@ -29,18 +29,6 @@ public class Block : MonoBehaviour{
 
             pipeDirection = newDirections;
         }
-	}
-
-	void Start(){
-        Manager = FindObjectOfType<TileManager>();
-        Manager.Blocks.Add(this);
-        transform.position = worldPosition;
-	}
-
-	public Vector3 worldPosition{
-		get{
-			return new Vector3(positionX*3, positionY*2.6f, 0);
-		}
 	}
 
 	void CheckNext(){
