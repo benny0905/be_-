@@ -17,7 +17,7 @@ public class Block : MonoBehaviour{
         }
         else
         {
-            transform.Rotate(0, 0, 60);
+            //transform.Rotate(0, 0, 60);
 
             //새로운 연결방향 계산
             List<bool> newDirections = new List<bool>();

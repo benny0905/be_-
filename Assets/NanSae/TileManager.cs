@@ -5,6 +5,24 @@ using UnityEngine;
 public class TileManager : MonoBehaviour{
 	public List<Block> Blocks = new List<Block>();
 
+    public Block BlockLine;
+    public Block Block120;
+    public Block Block60;
+
+    void InstantiateBlock(string BlockType, float posX, float posY)
+    {
+        if(BlockType == "Lin")
+        {
+            Instantiate(BlockLine);
+        }else if(BlockType == "60")
+        {
+            Instantiate(Block60);
+        }else if(BlockType == "120")
+        {
+            Instantiate(Block120);
+        }
+    }
+
     public Block NeighborBlock(Block origin, int dir)
     {
         if (dir == 0)

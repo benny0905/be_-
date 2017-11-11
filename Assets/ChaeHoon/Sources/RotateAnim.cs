@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotate : MonoBehaviour
+public class RotateAnim : MonoBehaviour
 {
     IEnumerator SmoothRotation()
     {
@@ -12,6 +12,7 @@ public class rotate : MonoBehaviour
             transform.Rotate(0, 0, 2);
         }
     }
+
     private float QuadraticFormula(float x)
     {
         float y;
