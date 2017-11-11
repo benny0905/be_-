@@ -219,7 +219,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\rotate.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\BackButton.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\GameStartButton.cs" />
+    <Compile Include="Assets\Jiyong\Scripts\Turn.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
