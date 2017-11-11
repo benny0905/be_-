@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,17 @@ public class TileManager : MonoBehaviour{
     public Block Block120;
     public Block Block60;
 
-    void InstantiateBlock(string BlockType, float posX, float posY)
+    public static List<string> BlockDatum<T>()
     {
-        if(BlockType == "Lin")
+        TextAsset textAsset = Resources.Load<TextAsset>("TileData");
+        string[] rowDataList = textAsset.text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        return new List<string>(rowDataList);
+    }
+
+    void InstantiateBlock(string BlockData)
+    {
+        /*StringParser parser = new StringParser(data, '\t');
+        if (BlockType == "Lin")
         {
             Instantiate(BlockLine);
         }else if(BlockType == "60")
@@ -20,7 +29,7 @@ public class TileManager : MonoBehaviour{
         }else if(BlockType == "120")
         {
             Instantiate(Block120);
-        }
+        }*/
     }
 
     public Block NeighborBlock(Block origin, int dir)
