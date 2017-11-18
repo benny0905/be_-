@@ -6,16 +6,22 @@ using UnityEngine;
 public class TileManager : MonoBehaviour{
 	public List<Block> Blocks = new List<Block>();
 
-    public float diffX = 3;
-    public float diffY = 2.6f;
+	public float diffX;
+	public float diffY;
 
-    public Block BlockLine;
-    public Block Block120;
-    public Block Block60;
-    public Block BlockEnd;
+	GameObject BlockLine;
+	GameObject Block120;
+	GameObject Block60;
+	GameObject BlockEmpty;
+	GameObject BlockEnd;
 
     private void Start()
     {
+		BlockLine = Resources.Load<GameObject> ("LinePipe");
+		Block120 = Resources.Load<GameObject> ("120Pipe");
+		Block60 = Resources.Load<GameObject> ("60Pipe");
+		BlockEmpty = Resources.Load<GameObject> ("EmptyTile");
+		BlockEnd = Resources.Load<GameObject> ("EndTile");
         List<string> Datum = BlockDatum();
         Datum.ForEach(data => InstantiateBlock(data));
     }
@@ -26,7 +32,7 @@ public class TileManager : MonoBehaviour{
         string[] rowDataList = textAsset.text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         return new List<string>(rowDataList);
     }
-
+		
     void InstantiateBlock(string BlockData)
     {
         StringParser parser = new StringParser(BlockData, '\t');
@@ -36,18 +42,18 @@ public class TileManager : MonoBehaviour{
 
         Block Item;
 
-        if (BlockType == "Lin")
+		if (BlockType == "Lin") {
+			Item = Instantiate (BlockLine).GetComponent<Block> ();
+		} else if (BlockType == "60") {
+			Item = Instantiate (Block60).GetComponent<Block> ();
+		} else if (BlockType == "120") {
+			Item = Instantiate (Block120).GetComponent<Block> ();
+		} else if (BlockType == "Emp") {
+			Item = Instantiate (BlockEmpty).GetComponent<Block> ();
+		}
+		else if(BlockType == "End")
         {
-            Item = Instantiate(BlockLine);
-        }else if(BlockType == "60")
-        {
-            Item = Instantiate(Block60);
-        }else if(BlockType == "120")
-        {
-            Item = Instantiate(Block120);
-        }else if(BlockType == "End")
-        {
-            Item = Instantiate(BlockEnd);
+			Item = Instantiate(BlockEnd).GetComponent<Block>();
         }
         else
         {
