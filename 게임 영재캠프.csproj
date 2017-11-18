@@ -93,9 +93,10 @@
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoOne.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoThree.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoTwo.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RotateAnim.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\Turn.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\management.cs" />
     <Compile Include="Assets\NanSae\Block.cs" />
     <Compile Include="Assets\NanSae\StringParser.cs" />
     <Compile Include="Assets\NanSae\TileManager.cs" />

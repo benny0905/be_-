@@ -8,16 +8,19 @@ public class MuteButton : MonoBehaviour {
     public Sprite mute;
     public Sprite on;
     public string Key;
+    public bool SoundOn = true;
 
     void Start()
     {
         if (PlayerPrefs.GetInt(Key) == 0)
         {
             image.sprite = on;
+            SoundOn = true;
         }
         else
         {
             image.sprite = mute;
+            SoundOn = false;
         }
     }
 
@@ -29,10 +32,12 @@ public class MuteButton : MonoBehaviour {
         if (PlayerPrefs.GetInt(Key) == 0)
         {
             image.sprite = on;
+            SoundOn = true;
         }
         else
         {
             image.sprite = mute;
+            SoundOn = false;
         }
     }
 }

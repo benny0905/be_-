@@ -85,15 +85,18 @@ public class BetaTest : MonoBehaviour {
                 AngleWriter += System.Environment.NewLine;
             }
 
-            print("알았어!! 이게 정답이라는 것을 기록해 둘게!!");
+            int NoEffectNum = 0;
             RotateAnim[] Anim = new RotateAnim[DropBlocks.Length];
 
             for (int i = 0; i < DropBlocks.Length; i++)
             {
                 Anim[i] = DropBlocks[i].GetComponent<RotateAnim>();
+
                 if (Anim[i].EffectToAnswer == false)
                 {
+                    
                     AngleWriter += -1 + "|";
+                    NoEffectNum++;
                 }
                 else
                 {
@@ -101,6 +104,13 @@ public class BetaTest : MonoBehaviour {
                 }
             }
 
+            if(NoEffectNum == DropBlocks.Length)
+            {
+                Debug.LogError("FATAL ERROR : 모든 블럭의 Effect To Answer값이 false여서 기록할 수 없어!!");
+                return;
+            }
+
+            print("이게 정답이라는 것을 기록해 둘게!!");
             using (StreamWriter outputFile = new StreamWriter(Filename, true))
             {
                 outputFile.WriteLine(AngleWriter);

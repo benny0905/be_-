@@ -13,7 +13,8 @@ public class RotateAnim : MonoBehaviour
 
     private void Start()
     {
-        state = transform.rotation.z;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        EffectToAnswer = false;
         int randnum = Random.Range(1, 7);
         for(int n = 0; n < randnum; n++) StartCoroutine("SmoothRotation");
     }
@@ -34,18 +35,42 @@ public class RotateAnim : MonoBehaviour
     private float QuadraticFormula(float x)
     {
         float y;
-        y = 0.000015f * (x - 15.0f) * (x - 15.0f) + 0.0001f; // 0.000215 or 0.000015
+        y = 0.000015f * (x - 15.0f) * (x - 15.0f) + 0.0001f;
         return y;
     }
 
     private void OnMouseDown()
     {
         StartCoroutine("SmoothRotation");
-        audioSource.PlayOneShot(Sfx, 0.2f);
+        /*GameObject EffectButton = GameObject.Find("EffectMute");
+        if (EffectButton != null)
+        {
+            MuteButton MuteScript = EffectButton.GetComponent<MuteButton>();
+            if (MuteScript.SoundOn == true) audioSource.PlayOneShot(Sfx, 0.2f);
+        }
+        else Debug.LogError("으악!!!");*/
+    }
+
+    private void Update()
+    {
+        if (GameObject.Find("GameManager").GetComponent<RealGame>().enabled == false)
+        {
+            if (EffectToAnswer == true)
+            {
+                EffectToAnswer = true;
+                this.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                EffectToAnswer = false;
+                this.GetComponent<SpriteRenderer>().color = Color.gray;
+            }
+        }
     }
 
     public bool CheckInitializing()
     {
         return BlockMoving;
     }
+
 }
