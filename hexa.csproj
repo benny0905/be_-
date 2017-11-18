@@ -212,10 +212,10 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/수환/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/user/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/수환/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/user/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -234,9 +234,10 @@
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoOne.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoThree.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoTwo.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\management.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RotateAnim.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\Turn.cs" />
     <Compile Include="Assets\NanSae\Block.cs" />
     <Compile Include="Assets\NanSae\StringParser.cs" />
     <Compile Include="Assets\NanSae\TileManager.cs" />
