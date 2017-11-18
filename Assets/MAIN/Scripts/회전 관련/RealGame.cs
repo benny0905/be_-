@@ -42,7 +42,7 @@ public class RealGame : MonoBehaviour {
                 {
                     if(Anim[BlockNum].StriaghtBlock == true)
                     {
-                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && DropBlocks[BlockNum].transform.rotation.z != (AngleAnswer[AnsNum, BlockNum] + 180) % 360)
+                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && Anim[BlockNum].state != (AngleAnswer[AnsNum, BlockNum] + 180) % 360)
                         {
                             // 직선 블럭일 때
                             break;

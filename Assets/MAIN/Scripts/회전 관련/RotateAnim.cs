@@ -42,13 +42,13 @@ public class RotateAnim : MonoBehaviour
     private void OnMouseDown()
     {
         StartCoroutine("SmoothRotation");
-        GameObject EffectButton = GameObject.Find("EffectMute");
+        /*GameObject EffectButton = GameObject.Find("EffectMute");
         if (EffectButton != null)
         {
             MuteButton MuteScript = EffectButton.GetComponent<MuteButton>();
             if (MuteScript.SoundOn == true) audioSource.PlayOneShot(Sfx, 0.2f);
         }
-        else Debug.LogError("으악!!!");
+        else Debug.LogError("으악!!!");*/
     }
 
     private void Update()
