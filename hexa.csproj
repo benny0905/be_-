@@ -238,9 +238,6 @@
     <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RotateAnim.cs" />
-    <Compile Include="Assets\NanSae\Block.cs" />
-    <Compile Include="Assets\NanSae\StringParser.cs" />
-    <Compile Include="Assets\NanSae\TileManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
