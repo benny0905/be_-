@@ -76,11 +76,22 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+=======
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/user/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/user/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+>>>>>>> 25196b10de8f36036f42c468f9302de60a2b6d35
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +110,10 @@
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoOne.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoThree.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\TwoTwo.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\management.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
+    <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RotateAnim.cs" />
-    <Compile Include="Assets\MAIN\Scripts\회전 관련\Turn.cs" />
     <Compile Include="Assets\NanSae\Block.cs" />
     <Compile Include="Assets\NanSae\StringParser.cs" />
     <Compile Include="Assets\NanSae\TileManager.cs" />
