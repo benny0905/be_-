@@ -12,21 +12,72 @@ public class RealGame : MonoBehaviour {
 
     private void Start()
     {
+        int retval = ReadAnsFile();
+        if (retval == 1) return;
+    }
+
+    private void Update()
+    {
+        RotateAnim[] Anim = new RotateAnim[DropBlocks.Length];
+        
+        for (int AnsNum = 0; AnsNum < AngleAnswer.GetLength(0); AnsNum++)
+        {
+            for (int BlockNum = 0; BlockNum <= AngleAnswer.GetLength(1); BlockNum++)
+            {
+                if(BlockNum == DropBlocks.Length)
+                {
+                    // 성공했을 시 여기로 옴
+                    Invoke("LoadToWinningScene", 0.3f);
+                    return;
+                }
+
+                Anim[BlockNum] = DropBlocks[BlockNum].GetComponent<RotateAnim>();
+                if (Anim[BlockNum].CheckInitializing() == true)
+                {
+                    // 블럭을 무작위로 섞는 중이면(초기화 중이면) 작업 중단
+                    return;
+                }
+
+                if(AngleAnswer[AnsNum, BlockNum] != -1)
+                {
+                    if(Anim[BlockNum].StriaghtBlock == true)
+                    {
+                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && DropBlocks[BlockNum].transform.rotation.z != (AngleAnswer[AnsNum, BlockNum] + 180) % 360)
+                        {
+                            // 직선 블럭일 때
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum])
+                        {
+                            // 일반 블럭일 때
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private int ReadAnsFile()
+    {
         if (File.Exists(Filename))
         {
             using (StreamReader reader = new StreamReader(Filename))
             {
                 int sizeofblocks = 0;
                 string DataString = reader.ReadLine();
-                for(int i = 0; i < DataString.Length; i++)
+                for (int i = 0; i < DataString.Length; i++)
                 {
-                    if(i != 0) sizeofblocks *= 10;
+                    if (i != 0) sizeofblocks *= 10;
                     sizeofblocks += DataString[i] - '0';
                 }
                 if (sizeofblocks != DropBlocks.Length)
                 {
                     Debug.LogError("FATAL ERROR : 육각블럭들의 개수가 맞지 않아!!");
-                    return;
+                    return 1;
                 }
 
                 int WrittenNameidx = 0;
@@ -46,7 +97,7 @@ public class RealGame : MonoBehaviour {
                     if (DropBlocks[idx].name != WrittenName[idx])
                     {
                         Debug.LogError("FATAL ERROR : 육각블럭들이 제대로 세팅되지 않았어!!");
-                        return;
+                        return 1;
                     }
                 }
                 for (int lineidx = 0; ; lineidx++)
@@ -58,17 +109,17 @@ public class RealGame : MonoBehaviour {
                     if (lineidx == 0)
                     {
                         AngleAnswer = new int[1, DropBlocks.Length];
-                        for(int init = 0; init < DropBlocks.Length; init++)
+                        for (int init = 0; init < DropBlocks.Length; init++)
                         {
                             AngleAnswer[0, init] = 0;
                         }
                     }
                     else
                     {
-                        int[, ] Temp = new int[lineidx, DropBlocks.Length];
-                        for(int templineidx = 0; templineidx < lineidx; templineidx++)
+                        int[,] Temp = new int[lineidx, DropBlocks.Length];
+                        for (int templineidx = 0; templineidx < lineidx; templineidx++)
                         {
-                            for(int tempidx = 0; tempidx < DropBlocks.Length; tempidx++)
+                            for (int tempidx = 0; tempidx < DropBlocks.Length; tempidx++)
                             {
                                 Temp[templineidx, tempidx] = AngleAnswer[templineidx, tempidx];
                             }
@@ -91,21 +142,21 @@ public class RealGame : MonoBehaviour {
                     bool minus = false;
                     for (int idx = 0; idx < AngleData.Length; idx++)
                     {
-                        if(AngleData[idx] == '-')
+                        if (AngleData[idx] == '-')
                         {
                             if (minus == true)
                             {
-                                Debug.LogError("FATAL ERROR : \"" + Filename + "\"가 이상합니다!!");
-                                return;
+                                Debug.LogError("FATAL ERROR : \"" + Filename + "\"가 이상해!!");
+                                return 1;
                             }
                             else minus = true;
                         }
-                        else if(AngleData[idx] == '|')
+                        else if (AngleData[idx] == '|')
                         {
                             Ansidx++;
                             minus = false;
                         }
-                        else if(AngleData[idx] >= '0' && AngleData[idx] <= '9')
+                        else if (AngleData[idx] >= '0' && AngleData[idx] <= '9')
                         {
                             int letter = AngleData[idx] - '0';
                             if (letter != 0 || AngleAnswer[lineidx, Ansidx] != 0)
@@ -117,7 +168,7 @@ public class RealGame : MonoBehaviour {
                         }
                         else
                         {
-                            Debug.LogError("FATAL ERROR : \"" + Filename + "\"가 이상합니다!!");
+                            Debug.LogError("FATAL ERROR : \"" + Filename + "\"가 이상해!!");
                         }
                     }
                 }
@@ -126,50 +177,9 @@ public class RealGame : MonoBehaviour {
         else
         {
             Debug.LogError("FATAL ERROR : \"" + Filename + "\"가 존재하지 않아!!");
-            return;
+            return 1;
         }
-    }
-
-    private void Update()
-    {
-        RotateAnim[] Anim = new RotateAnim[DropBlocks.Length];
-        
-        for (int AnsNum = 0; AnsNum < AngleAnswer.GetLength(0); AnsNum++)
-        {
-            for (int BlockNum = 0; BlockNum <= AngleAnswer.GetLength(1); BlockNum++)
-            {
-                if(BlockNum == DropBlocks.Length)
-                {
-                    // 성공했을 시 여기로 옴
-                    Invoke("LoadToWinningScene", 0.3f);
-                    return;
-                }
-
-                Anim[BlockNum] = DropBlocks[BlockNum].GetComponent<RotateAnim>();
-                if (Anim[BlockNum].CheckInitializing() == true)
-                {
-                    return;
-                }
-
-                if(AngleAnswer[AnsNum, BlockNum] != -1)
-                {
-                    if(Anim[BlockNum].StriaghtBlock == true)
-                    {
-                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && DropBlocks[BlockNum].transform.rotation.z != (AngleAnswer[AnsNum, BlockNum] + 180) % 360)
-                        {
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum])
-                        {
-                            return;
-                        }
-                    }
-                }
-            }
-        }
+        return 0;
     }
 
     private void LoadToWinningScene()
