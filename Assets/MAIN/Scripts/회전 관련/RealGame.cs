@@ -184,6 +184,6 @@ public class RealGame : MonoBehaviour {
 
     private void LoadToWinningScene()
     {
-        SceneManager.LoadScene("1-2");
+        SceneManager.LoadScene("StageClear");
     }
 }
