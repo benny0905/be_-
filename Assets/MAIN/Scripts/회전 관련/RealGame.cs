@@ -183,11 +183,12 @@ public class RealGame : MonoBehaviour {
         }
         return 0;
     }
+    public string Level;
 
     private void LoadToWinningScene()
     {
         int NowPassed = PlayerPrefs.GetInt("LevelPassed");
         PlayerPrefs.SetInt("LevelPassed", Mathf.Max(NowPassed, Stage));
-        SceneManager.LoadScene("StageClear");
+        SceneManager.LoadScene(Level);
     }
 }

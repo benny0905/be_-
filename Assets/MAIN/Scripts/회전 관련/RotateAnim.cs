@@ -44,7 +44,7 @@ public class RotateAnim : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameObject.Find("GameManager").GetComponent<RealGame>().AlreadyWon == false && FixedBlock == false)
+        if (FixedBlock == false)
         {
             StartCoroutine("SmoothRotation");
             GameObject.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(Sfx, 0.15f);

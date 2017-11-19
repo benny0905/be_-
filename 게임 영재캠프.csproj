@@ -79,11 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MAIN\Scripts\BackButton.cs" />
+    <Compile Include="Assets\MAIN\Scripts\BackToChap.cs" />
     <Compile Include="Assets\MAIN\Scripts\ChapterOne.cs" />
     <Compile Include="Assets\MAIN\Scripts\ChapterThree.cs" />
     <Compile Include="Assets\MAIN\Scripts\ChapterTwo.cs" />
     <Compile Include="Assets\MAIN\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\MAIN\Scripts\MuteButton.cs" />
+    <Compile Include="Assets\MAIN\Scripts\ResetButton.cs" />
     <Compile Include="Assets\MAIN\Scripts\스테이지\NextStage.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
