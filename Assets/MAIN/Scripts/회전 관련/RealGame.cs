@@ -8,10 +8,12 @@ public class RealGame : MonoBehaviour {
 
     public GameObject[] DropBlocks = new GameObject[1];
     public string Filename = "Ans_CH.bin";
+    public bool AlreadyWon = false;
     private int[ , ] AngleAnswer;
 
     private void Start()
     {
+        AlreadyWon = false;
         int retval = ReadAnsFile();
         if (retval == 1) return;
     }
@@ -27,7 +29,16 @@ public class RealGame : MonoBehaviour {
                 if(BlockNum == DropBlocks.Length)
                 {
                     // 성공했을 시 여기로 옴
-                    Invoke("LoadToWinningScene", 0.3f);
+                    Invoke("LoadToWinningScene", 3.0f);
+                    GameObject.Find("Pause").SetActive(false);
+                    for(int num = 0; num < DropBlocks.Length; num++)
+                    {
+                        AlreadyWon = true;
+                        if (AngleAnswer[AnsNum, num] != -1)
+                        {
+                            DropBlocks[num].GetComponent<Animator>().enabled = true;
+                        }
+                    }
                     return;
                 }
 
@@ -184,6 +195,6 @@ public class RealGame : MonoBehaviour {
 
     private void LoadToWinningScene()
     {
-        SceneManager.LoadScene("StageClear");
+        SceneManager.LoadScene("StageClear(1)");
     }
 }

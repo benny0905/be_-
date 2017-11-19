@@ -5,18 +5,21 @@ using UnityEngine;
 public class RotateAnim : MonoBehaviour
 {
     public AudioClip Sfx;
-    public AudioSource audioSource;
     public float state = 0;
+    public bool FixedBlock = false;
     public bool StriaghtBlock = false;
     public bool EffectToAnswer = false;
     private bool BlockMoving = false;
 
     private void Start()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
         EffectToAnswer = false;
-        int randnum = Random.Range(1, 7);
-        for(int n = 0; n < randnum; n++) StartCoroutine("SmoothRotation");
+        if (FixedBlock == false)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            int randnum = Random.Range(1, 7);
+            for (int n = 0; n < randnum; n++) StartCoroutine("SmoothRotation");
+        }
     }
 
     public IEnumerator SmoothRotation()
@@ -41,19 +44,24 @@ public class RotateAnim : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine("SmoothRotation");
-        /*GameObject EffectButton = GameObject.Find("EffectMute");
-        if (EffectButton != null)
+        if (GameObject.Find("GameManager").GetComponent<RealGame>().AlreadyWon == false && FixedBlock == false)
         {
-            MuteButton MuteScript = EffectButton.GetComponent<MuteButton>();
-            if (MuteScript.SoundOn == true) audioSource.PlayOneShot(Sfx, 0.2f);
+            StartCoroutine("SmoothRotation");
+            GameObject.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(Sfx, 0.15f);
+
+            /*GameObject EffectButton = GameObject.Find("EffectMute");
+            if (EffectButton != null)
+            {
+                MuteButton MuteScript = EffectButton.GetComponent<MuteButton>();
+                if (MuteScript.SoundOn == true) audioSource.PlayOneShot(Sfx, 0.2f);
+            }
+            else Debug.LogError("으악!!!");*/
         }
-        else Debug.LogError("으악!!!");*/
     }
 
     private void Update()
     {
-        if (GameObject.Find("GameManager").GetComponent<RealGame>().enabled == false)
+        if (GameObject.Find("GameManager").GetComponent<RealGame>().enabled == false && FixedBlock == false)
         {
             if (EffectToAnswer == true)
             {
