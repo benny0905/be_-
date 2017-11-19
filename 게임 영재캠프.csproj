@@ -84,15 +84,7 @@
     <Compile Include="Assets\MAIN\Scripts\ChapterTwo.cs" />
     <Compile Include="Assets\MAIN\Scripts\GameStartButton.cs" />
     <Compile Include="Assets\MAIN\Scripts\MuteButton.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\OneOne.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\OneThree.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\OneTwo.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\ThreeOne.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\ThreeThree.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\ThreeTwo.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\TwoOne.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\TwoThree.cs" />
-    <Compile Include="Assets\MAIN\Scripts\스테이지\TwoTwo.cs" />
+    <Compile Include="Assets\MAIN\Scripts\스테이지\NextStage.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
     <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />

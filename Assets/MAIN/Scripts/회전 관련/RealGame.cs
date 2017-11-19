@@ -9,6 +9,8 @@ public class RealGame : MonoBehaviour {
     public GameObject[] DropBlocks = new GameObject[1];
     public string Filename = "Ans_CH.bin";
     private int[ , ] AngleAnswer;
+    public int Stage;
+
 
     private void Start()
     {
@@ -184,6 +186,8 @@ public class RealGame : MonoBehaviour {
 
     private void LoadToWinningScene()
     {
+        int NowPassed = PlayerPrefs.GetInt("LevelPassed");
+        PlayerPrefs.SetInt("LevelPassed", Mathf.Max(NowPassed, Stage));
         SceneManager.LoadScene("StageClear");
     }
 }
