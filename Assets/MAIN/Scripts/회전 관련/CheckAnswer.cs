@@ -58,8 +58,10 @@ public class CheckAnswer : MonoBehaviour {
                     else
                     {
                         DropBlocks[BlockNum].GetComponent<RotateAnim>().EffectToAnswer = true;
-                        DropBlocks[BlockNum].GetComponent<RotateAnim>().state = AngleAnswer[NumberOfAnswerToView, BlockNum];
-                        DropBlocks[BlockNum].transform.rotation = Quaternion.Euler(0, 0, AngleAnswer[NumberOfAnswerToView, BlockNum]);
+                        if (DropBlocks[BlockNum].GetComponent<RotateAnim>().FixedBlock == false) {
+                            DropBlocks[BlockNum].GetComponent<RotateAnim>().state = AngleAnswer[NumberOfAnswerToView, BlockNum];
+                            DropBlocks[BlockNum].transform.rotation = Quaternion.Euler(0, 0, AngleAnswer[NumberOfAnswerToView, BlockNum]);
+                        }
                     }
                 }
             }
