@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RealGame : MonoBehaviour {
 
     public GameObject[] DropBlocks = new GameObject[1];
     public string Filename = "Ans_CH.bin";
+    public bool AlreadyWon = false;
     private int[ , ] AngleAnswer;
     public int Stage;
 
-
     private void Start()
     {
+        AlreadyWon = false;
         int retval = ReadAnsFile();
         if (retval == 1) return;
+
+        if (DontDestroyOnLoadManager.Objects.Count != 0)
+        {
+            DontDestroyOnLoadManager.DestroyAll();
+        }
     }
 
     private void Update()
@@ -29,7 +36,16 @@ public class RealGame : MonoBehaviour {
                 if(BlockNum == DropBlocks.Length)
                 {
                     // 성공했을 시 여기로 옴
-                    Invoke("LoadToWinningScene", 0.3f);
+                    Invoke("LoadToWinningScene", 2.2f);
+                    GameObject.Find("Pause").SetActive(false);
+                    for(int num = 0; num < DropBlocks.Length; num++)
+                    {
+                        AlreadyWon = true;
+                        if (AngleAnswer[AnsNum, num] != -1)
+                        {
+                            DropBlocks[num].GetComponent<Animator>().enabled = true;
+                        }
+                    }
                     return;
                 }
 

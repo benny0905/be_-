@@ -19,6 +19,11 @@ public class CheckAnswer : MonoBehaviour {
         SaveChanges = false;
         int retval = ReadAnsFile();
         if (retval == 1) return;
+
+        if (DontDestroyOnLoadManager.Objects.Count != 0)
+        {
+            DontDestroyOnLoadManager.DestroyAll();
+        }
     }
 
 	void Update() {

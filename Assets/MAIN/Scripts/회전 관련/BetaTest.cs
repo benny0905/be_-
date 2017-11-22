@@ -12,6 +12,10 @@ public class BetaTest : MonoBehaviour {
 
     private void Start() {
         IsCorrect = false;
+        if (DontDestroyOnLoadManager.Objects.Count != 0)
+        {
+            DontDestroyOnLoadManager.DestroyAll();
+        }
     }
 
     private void Update() {

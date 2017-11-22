@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour
 {
+    public string NameOfScene = "ChooseLevel";
 
     public void Button()
     {
@@ -12,6 +13,6 @@ public class BackButton : MonoBehaviour
     }
     private void Back()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene(NameOfScene);
     }
 }

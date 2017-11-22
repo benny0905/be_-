@@ -44,18 +44,14 @@ public class RotateAnim : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (FixedBlock == false)
+        GameObject PauseScreen = FindObject(GameObject.Find("Canvas"), "Image");
+        RealGame Game = GameObject.Find("GameManager").GetComponent<RealGame>();
+
+        if (Game.AlreadyWon == false && FixedBlock == false && PauseScreen.activeSelf == false)
         {
             StartCoroutine("SmoothRotation");
-            GameObject.Find("AudioSource").GetComponent<AudioSource>().PlayOneShot(Sfx, 0.15f);
-
-            /*GameObject EffectButton = GameObject.Find("EffectMute");
-            if (EffectButton != null)
-            {
-                MuteButton MuteScript = EffectButton.GetComponent<MuteButton>();
-                if (MuteScript.SoundOn == true) audioSource.PlayOneShot(Sfx, 0.2f);
-            }
-            else Debug.LogError("으악!!!");*/
+            AudioSource audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+            if (audioSource != null && PlayerPrefs.GetInt("SFX") == 0) audioSource.PlayOneShot(Sfx, 0.2f);
         }
     }
 
@@ -81,4 +77,16 @@ public class RotateAnim : MonoBehaviour
         return BlockMoving;
     }
 
+    public static GameObject FindObject(GameObject parent, string name)
+    {
+        Transform[] trs = parent.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trs)
+        {
+            if (t.name == name)
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
+    }
 }
