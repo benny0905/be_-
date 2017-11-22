@@ -57,8 +57,8 @@
      <Compile Include="Assets\MAIN\Scripts\GameStartButton.cs" />
      <Compile Include="Assets\MAIN\Scripts\MuteButton.cs" />
      <Compile Include="Assets\MAIN\Scripts\ResetButton.cs" />
-     <Compile Include="Assets\MAIN\Scripts\스테이지\NextStage.cs" />
-     <Compile Include="Assets\MAIN\Scripts\스테이지\ToTitle.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Stage\NextStage.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Stage\ToTitle.cs" />
      <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
      <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
      <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
