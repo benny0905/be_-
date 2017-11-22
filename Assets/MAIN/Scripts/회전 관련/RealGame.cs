@@ -37,7 +37,11 @@ public class RealGame : MonoBehaviour {
                 {
                     // 성공했을 시 여기로 옴
                     Invoke("LoadToWinningScene", 2.2f);
-                    GameObject.Find("Pause").SetActive(false);
+                    GameObject Pause = GameObject.Find("Pause");
+                    if(Pause != null){
+                        Pause.SetActive(false);    
+                    }
+                    
                     for(int num = 0; num < DropBlocks.Length; num++)
                     {
                         AlreadyWon = true;
