@@ -57,15 +57,12 @@
      <Compile Include="Assets\MAIN\Scripts\GameStartButton.cs" />
      <Compile Include="Assets\MAIN\Scripts\MuteButton.cs" />
      <Compile Include="Assets\MAIN\Scripts\ResetButton.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Rotation\BetaTest.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Rotation\CheckAnswer.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Rotation\RealGame.cs" />
+     <Compile Include="Assets\MAIN\Scripts\Rotation\RotateAnim.cs" />
      <Compile Include="Assets\MAIN\Scripts\Stage\NextStage.cs" />
      <Compile Include="Assets\MAIN\Scripts\Stage\ToTitle.cs" />
-     <Compile Include="Assets\MAIN\Scripts\회전 관련\BetaTest.cs" />
-     <Compile Include="Assets\MAIN\Scripts\회전 관련\CheckAnswer.cs" />
-     <Compile Include="Assets\MAIN\Scripts\회전 관련\RealGame.cs" />
-     <Compile Include="Assets\MAIN\Scripts\회전 관련\RotateAnim.cs" />
-     <Compile Include="Assets\NanSae\Block.cs" />
-     <Compile Include="Assets\NanSae\StringParser.cs" />
-     <Compile Include="Assets\NanSae\TileManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

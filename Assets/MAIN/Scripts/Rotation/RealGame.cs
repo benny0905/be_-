@@ -13,28 +13,22 @@ public class RealGame : MonoBehaviour {
     private int[ , ] AngleAnswer;
     public int Stage;
 
-    private void Start()
-    {
+    private void Start(){
         AlreadyWon = false;
         int retval = ReadAnsFile();
         if (retval == 1) return;
 
-        if (DontDestroyOnLoadManager.Objects.Count != 0)
-        {
+        if (DontDestroyOnLoadManager.Objects.Count != 0){
             DontDestroyOnLoadManager.DestroyAll();
         }
     }
 
-    private void Update()
-    {
+     void Update(){
         RotateAnim[] Anim = new RotateAnim[DropBlocks.Length];
         
-        for (int AnsNum = 0; AnsNum < AngleAnswer.GetLength(0); AnsNum++)
-        {
-            for (int BlockNum = 0; BlockNum <= AngleAnswer.GetLength(1); BlockNum++)
-            {
-                if(BlockNum == DropBlocks.Length)
-                {
+        for (int AnsNum = 0; AnsNum < AngleAnswer.GetLength(0); AnsNum++){
+            for (int BlockNum = 0; BlockNum <= AngleAnswer.GetLength(1); BlockNum++){
+                if(BlockNum == DropBlocks.Length){
                     // 성공했을 시 여기로 옴
                     Invoke("LoadToWinningScene", 2.2f);
                     GameObject Pause = GameObject.Find("Pause");
@@ -42,11 +36,9 @@ public class RealGame : MonoBehaviour {
                         Pause.SetActive(false);    
                     }
                     
-                    for(int num = 0; num < DropBlocks.Length; num++)
-                    {
+                    for(int num = 0; num < DropBlocks.Length; num++){
                         AlreadyWon = true;
-                        if (AngleAnswer[AnsNum, num] != -1)
-                        {
+                        if (AngleAnswer[AnsNum, num] != -1){
                             DropBlocks[num].GetComponent<Animator>().enabled = true;
                         }
                     }
@@ -54,26 +46,19 @@ public class RealGame : MonoBehaviour {
                 }
 
                 Anim[BlockNum] = DropBlocks[BlockNum].GetComponent<RotateAnim>();
-                if (Anim[BlockNum].CheckInitializing() == true)
-                {
+                if (Anim[BlockNum].CheckInitializing() == true){
                     // 블럭을 무작위로 섞는 중이면(초기화 중이면) 작업 중단
                     return;
                 }
 
-                if(AngleAnswer[AnsNum, BlockNum] != -1)
-                {
-                    if(Anim[BlockNum].StriaghtBlock == true)
-                    {
-                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && Anim[BlockNum].state != (AngleAnswer[AnsNum, BlockNum] + 180) % 360)
-                        {
+                if(AngleAnswer[AnsNum, BlockNum] != -1){
+                    if(Anim[BlockNum].StriaghtBlock == true){
+                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum] && Anim[BlockNum].state != (AngleAnswer[AnsNum, BlockNum] + 180) % 360){
                             // 직선 블럭일 때
                             break;
                         }
-                    }
-                    else
-                    {
-                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum])
-                        {
+                    }else{
+                        if (Anim[BlockNum].state != AngleAnswer[AnsNum, BlockNum]){
                             // 일반 블럭일 때
                             break;
                         }
@@ -83,10 +68,8 @@ public class RealGame : MonoBehaviour {
         }
     }
 
-    private int ReadAnsFile()
-    {
-        if (File.Exists(Filename))
-        {
+    private int ReadAnsFile(){
+        if (File.Exists(Filename)){
             using (StreamReader reader = new StreamReader(Filename))
             {
                 int sizeofblocks = 0;
