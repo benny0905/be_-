@@ -10,10 +10,10 @@ public class RealGame : MonoBehaviour {
     public GameObject[] DropBlocks = new GameObject[1];
     public string Filename = "Ans_CH.bin";
     public bool AlreadyWon = false;
-    private int[ , ] AngleAnswer;
+    int[ , ] AngleAnswer;
     public int Stage;
 
-    private void Start(){
+    void Start(){
         AlreadyWon = false;
         int retval = ReadAnsFile();
         if (retval == 1) return;
@@ -23,7 +23,7 @@ public class RealGame : MonoBehaviour {
         }
     }
 
-     void Update(){
+    void Update(){
         RotateAnim[] Anim = new RotateAnim[DropBlocks.Length];
         
         for (int AnsNum = 0; AnsNum < AngleAnswer.GetLength(0); AnsNum++){
@@ -79,8 +79,7 @@ public class RealGame : MonoBehaviour {
                     if (i != 0) sizeofblocks *= 10;
                     sizeofblocks += DataString[i] - '0';
                 }
-                if (sizeofblocks != DropBlocks.Length)
-                {
+                if (sizeofblocks != DropBlocks.Length){
                     Debug.LogError("FATAL ERROR : 육각블럭들의 개수가 맞지 않아!!");
                     return 1;
                 }
@@ -97,10 +96,9 @@ public class RealGame : MonoBehaviour {
                     }
                 }
 
-                for (int idx = 0; idx < DropBlocks.Length; idx++)
-                {
-                    if (DropBlocks[idx].name != WrittenName[idx])
-                    {
+                for (int idx = 0; idx < DropBlocks.Length; idx++){
+                    Debug.Assert(DropBlocks[idx] != null, idx);
+                    if (DropBlocks[idx].name != WrittenName[idx]){
                         Debug.LogError("FATAL ERROR : 육각블럭들이 제대로 세팅되지 않았어!!");
                         return 1;
                     }
